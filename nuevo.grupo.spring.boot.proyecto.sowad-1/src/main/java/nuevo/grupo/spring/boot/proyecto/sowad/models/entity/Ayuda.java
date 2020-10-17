@@ -2,7 +2,7 @@ package nuevo.grupo.spring.boot.proyecto.sowad.models.entity;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,9 +16,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import lombok.Data; 
+import lombok.Data;
 
 @Data
 @Entity
@@ -46,8 +46,8 @@ public class Ayuda  implements Serializable{
 	@ManyToOne
 	private Institucion institucion;
 
-    @JsonManagedReference
+	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="ayuda_id", referencedColumnName="id" )
-	private Set<LineaDeAyuda> lineasDeAyudas;
+	private List<LineaDeAyuda> lineasDeAyudas;
 }

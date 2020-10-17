@@ -102,10 +102,10 @@ public class InstitucionController {
 		if (provincia!=null) {
 			data.put("provincia",provincia);
 		}
-		if (departamento!=null) {
+		if (distrito!=null) {
 			data.put("distrito",distrito);
 		}
-		if (departamento!=null) {
+		if (direccion!=null) {
 			data.put("direccion",direccion);
 		}
 		if (nombre!=null) {

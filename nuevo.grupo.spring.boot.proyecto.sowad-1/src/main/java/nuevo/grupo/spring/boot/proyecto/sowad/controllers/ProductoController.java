@@ -76,8 +76,7 @@ public class ProductoController {
 		productoActual.setTipo(producto.getTipo());
 		return ProductoService.saveProducto(productoActual);
 	}	
-	
-	//BUSQUEDA PEDIDOS RECORD
+
 	public static final String GREATER_THAN="greater";
 	public static final String LESS_THAN="less";
 	public static final String EQUAL="equal";

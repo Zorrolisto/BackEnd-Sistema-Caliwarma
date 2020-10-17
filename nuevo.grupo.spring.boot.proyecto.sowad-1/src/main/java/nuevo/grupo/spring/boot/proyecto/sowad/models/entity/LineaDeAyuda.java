@@ -10,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import lombok.Data;
 
 @Data
@@ -28,8 +26,7 @@ public class LineaDeAyuda  implements Serializable{
 	
 	@ManyToOne
 	private Producto producto;
-	
-    @JsonBackReference
+
 	@ManyToOne
     @JoinColumn
     private Ayuda ayuda;
