@@ -25,7 +25,7 @@ import nuevo.grupo.spring.boot.proyecto.sowad.models.entity.Institucion;
 import nuevo.grupo.spring.boot.proyecto.sowad.services.IInstitucionService;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/QW")
 public class InstitucionController {
@@ -85,8 +85,7 @@ public class InstitucionController {
 															@RequestParam(required=false, name="nombre") String nombre,	
 															@RequestParam(required=false, name="nroDeAlumnos")Integer nroDeAlumnos,
 															@RequestParam(required=false, name="nivel") String nivel,	
-															@RequestParam(required=false, name="numero") String numero,	
-															@RequestParam(required=false, name="lugar") String lugar,	
+															@RequestParam(required=false, name="numero") String numero,
 															@RequestParam Map<String,Object> params) {
 
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString())-1) : 0;

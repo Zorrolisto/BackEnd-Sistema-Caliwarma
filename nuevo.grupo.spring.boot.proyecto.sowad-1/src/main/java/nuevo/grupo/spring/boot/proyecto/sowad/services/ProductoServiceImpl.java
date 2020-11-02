@@ -54,7 +54,7 @@ public class ProductoServiceImpl implements IProductoService{
 		return ProductoDao.findAll(pageable);
 	}
 
-	//BUSQEUDA AVANZAADADADADADADAD
+	//BUSQEUDA
 	public static final String GREATER_THAN="greater";
 	public static final String LESS_THAN="less";
 	public static final String EQUAL="equal";
@@ -72,22 +72,46 @@ public class ProductoServiceImpl implements IProductoService{
 			{
 				case "nombre":  
 					predicates.add(cb.like(root.get("nombre"), "%"+(String)value+"%"));
-				break;
+					break;
 				case "tipo":  
 					predicates.add(cb.like(root.get("tipo"), "%"+(String)value+"%"));
-				break;
+					break;
 				case "porcionPorPersona":  
 					predicates.add(cb.equal(root.get("porcionPorPersona"), (Float)value));
-				break;
-				case "precio":  
-					predicates.add(cb.equal(root.get("precio"), (Float)value));
-				break;
-				case "stock":  
-					predicates.add(cb.equal(root.get("stock"), (Integer)value));
-				break;
+					break;
+				case "precio":
+					String precioCondicion=(String) conditions.get("precioCondicion");
+					switch (precioCondicion)
+					{
+						case GREATER_THAN:
+							predicates.add(cb.greaterThan(root.<Float>get(field),(Float)value));
+							break;
+						case LESS_THAN:
+							predicates.add(cb.lessThan(root.<Float>get(field),(Float)value));
+							break;
+						case EQUAL:
+							predicates.add(cb.equal(root.<Float>get(field),(Float)value));
+							break;
+					}
+					break;
+				case "stock":
+					String stockCondition=(String) conditions.get("stockCondicion");
+					switch (stockCondition)
+					{
+						case GREATER_THAN:
+							predicates.add(cb.greaterThan(root.<Integer>get(field),(Integer)value));
+							break;
+						case LESS_THAN:
+							predicates.add(cb.lessThan(root.<Integer>get(field),(Integer)value));
+							break;
+						case EQUAL:
+							predicates.add(cb.equal(root.<Integer>get(field),(Integer)value));
+							break;
+					}
+					break;
 				case "marca":  
 					predicates.add(cb.like(root.get("marca"), "%"+(String)value+"%"));
-				break;
+					break;
 			}
 		}); 
 		query.where(cb.and(predicates.toArray( new Predicate[predicates.size()])));

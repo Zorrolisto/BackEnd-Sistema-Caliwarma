@@ -2,7 +2,7 @@
 
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Porcion de Queso', 'Lacteo', 1, 0.30, 4000, 'Laive');
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Lata de Leche', 'Lacteo', 0.3, 4, 10000, 'Gloria');
-insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Lata de Leche', 'Lacteo', 0.3, 4, 10000, 'Gloria');
+insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Lata de Leche Dietetica', 'Lacteo', 0.3, 4, 10000, 'Gloria');
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Lata de higado', 'Conserva', 1, 4, 4000, 'Laive');
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Lata de Sardina', 'Conserva', 1, 4, 10000, 'Marperu');
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Harina de trigo', 'Harina', 1, 2, 6000, 'Sol');
@@ -107,23 +107,40 @@ insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones
 
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 1);
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 2, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 2, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 3, 2);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(140, 4, 2);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 11, 4);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 13);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 2, 14);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 3, 7);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(140, 4, 15);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 11, 11);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 10);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 8);
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 13, 2);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(140, 14, 2);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 13, 12);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(140, 14, 16);
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 3);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 1);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 10);
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(200, 1, 7);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 1);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 3, 2);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(300, 12, 6);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 3, 5);
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(140, 4, 11);
-insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 3, 2);
+insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(600, 3, 3);
 insert into linea_de_ayuda(porciones, producto_id, ayuda_id) values(140, 14, 2);
 
 /* ************************************************************ ENDS HELP LINE TABLE ********************************************************** */
+
+
+/* ************************************************************ BEGIN USERS TABLE ********************************************************** */
+
+insert into usuario(username, password, enabled) values ('invitado','$2y$12$0Vf.oqb5CTK.M1hGV4osGeo.aQ6hsmvY0DQJP4LDdUgbGz/fCkasu',1);
+insert into usuario(username, password, enabled) values ('empleado','$2y$12$0Vf.oqb5CTK.M1hGV4osGeo.aQ6hsmvY0DQJP4LDdUgbGz/fCkasu',1);
+insert into usuario(username, password, enabled) values ('admin','$2y$12$0Vf.oqb5CTK.M1hGV4osGeo.aQ6hsmvY0DQJP4LDdUgbGz/fCkasu',1);
+
+/* ************************************************************ ENDS USERS TABLE ********************************************************** */
+
+/* ************************************************************ BEGIN AUTHORITIES TABLE ********************************************************** */
+
+insert into authorities(user_id, authority) values (1, 'ROLE_INVITADO');
+insert into authorities(user_id, authority) values (2, 'ROLE_EMPLEADO');
+insert into authorities(user_id, authority) values (3, 'ROLE_ADMIN');
+
+/* ************************************************************ ENDS AUTHORITIES TABLE ********************************************************** */

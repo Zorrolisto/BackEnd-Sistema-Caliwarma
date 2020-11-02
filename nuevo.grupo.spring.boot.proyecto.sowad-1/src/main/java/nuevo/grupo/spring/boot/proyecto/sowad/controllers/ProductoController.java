@@ -24,7 +24,7 @@ import nuevo.grupo.spring.boot.proyecto.sowad.models.entity.Producto;
 import nuevo.grupo.spring.boot.proyecto.sowad.services.IProductoService;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/QW")
 public class ProductoController {
@@ -82,12 +82,14 @@ public class ProductoController {
 	public static final String EQUAL="equal";
 	@GetMapping(value="/productos/busqueda")
 	public List<Producto> listarProductosPorCriterio(@RequestParam(required=false, name="nombre") String nombre, 
-													@RequestParam(required=false, name="tipo") String tipo,	
-													@RequestParam(required=false, name="porcionPorPersona")Float porcionPorPersona,
-													@RequestParam(required=false, name="precio")Float precio,
-													@RequestParam(required=false, name="stock")Integer stock,
-													@RequestParam(required=false, name="marca") String marca,
-													@RequestParam Map<String,Object> params) {
+													 @RequestParam(required=false, name="tipo") String tipo,
+													 @RequestParam(required=false, name="porcionPorPersona")Float porcionPorPersona,
+													 @RequestParam(required=false, name="precio")Float precio,
+													 @RequestParam(required=false, name="precioCondicion")String precioCondicion,
+													 @RequestParam(required=false, name="stock")Integer stock,
+													 @RequestParam(required=false, name="stockCondicion")String stockCondicion,
+													 @RequestParam(required=false, name="marca") String marca,
+													 @RequestParam Map<String,Object> params) {
 
 		int page = params.get("page") != null ? (Integer.valueOf(params.get("page").toString())-1) : 0;
 		int size = Integer.valueOf(params.get("size").toString());
@@ -108,14 +110,24 @@ public class ProductoController {
 			data.put("porcionPorPersona",porcionPorPersona); 
 		}  
 		//precio
-		if (precio!=null) {
-			data.put("precio",precio); 
-		}  
+		if (precioCondicion==null)
+			precioCondicion=LESS_THAN;
+		if (!precioCondicion.equals(GREATER_THAN) && 	!precioCondicion.equals(LESS_THAN) && !precioCondicion.equals(EQUAL))
+			precioCondicion=GREATER_THAN;
+		if (precio!=null){
+			data.put("precio",precio);
+			data.put("precioCondicion", precioCondicion);
+		}
 		//stock
-		if (stock!=null) {
-			data.put("stock",stock); 
-		}  
-		//nombre
+		if (stockCondicion==null)
+			stockCondicion=LESS_THAN;
+		if (!stockCondicion.equals(GREATER_THAN) && 	!stockCondicion.equals(LESS_THAN) && !stockCondicion.equals(EQUAL))
+			stockCondicion=LESS_THAN;
+		if (stock!=null){
+			data.put("stock",stock);
+			data.put("stockCondicion", stockCondicion);
+		}
+		//marca
 		if (marca!=null) {
 			data.put("marca",marca); 
 		}  

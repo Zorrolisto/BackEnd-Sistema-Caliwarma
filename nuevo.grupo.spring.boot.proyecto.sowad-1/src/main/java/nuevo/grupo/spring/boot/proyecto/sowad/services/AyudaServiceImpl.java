@@ -87,7 +87,7 @@ public class AyudaServiceImpl implements IAyudaService{
 					for (Producto u : entityManager.createQuery(criteriaProducto).getResultList()) {
 						myListIDsProducto.add(u.getId());
 					}
-					Expression<Producto> expProducto = rootCriteriaProducto.get("persona");
+					Expression<Producto> expProducto = rootCriteriaProducto.get("id");
 					Predicate predicateParaProducto = expProducto.in(myListIDsProducto); //DATO
 					// 
 					criteriaLineaDeAyuda.select(rootCriteriaLineaDeAyuda).where(predicateParaProducto);
@@ -112,14 +112,38 @@ public class AyudaServiceImpl implements IAyudaService{
 					Expression<Institucion> expInstituciones = root.get("institucion");
 					predicates.add(expInstituciones.in(myListIDsInstituciones)); 
 					break;
-				case "porcionesTotales":  
-					predicates.add(cb.equal(root.get("porcionesTotales"), (Integer)value));
-				break;
-				case "precioTotal":  
-					predicates.add(cb.equal(root.get("precio"), (Float)value));
-				break;
+				case "porcionesTotales":
+					String porcionesTotalesCondition=(String) conditions.get("porcionesTotalesCondicion");
+					switch (porcionesTotalesCondition)
+					{
+						case GREATER_THAN:
+							predicates.add(cb.greaterThan(root.<Integer>get(field),(Integer)value));
+							break;
+						case LESS_THAN:
+							predicates.add(cb.lessThan(root.<Integer>get(field),(Integer)value));
+							break;
+						case EQUAL:
+							predicates.add(cb.equal(root.<Integer>get(field),(Integer)value));
+							break;
+					}
+					break;
+				case "precioTotal":
+					String precioTotalCondition=(String) conditions.get("precioTotalCondicion");
+					switch (precioTotalCondition)
+					{
+						case GREATER_THAN:
+							predicates.add(cb.greaterThan(root.<Float>get(field),(Float)value));
+							break;
+						case LESS_THAN:
+							predicates.add(cb.lessThan(root.<Float>get(field),(Float)value));
+							break;
+						case EQUAL:
+							predicates.add(cb.equal(root.<Float>get(field),(Float)value));
+							break;
+					}
+					break;
 				case "fechaDeLlegada":
-					String fechaDeLlegadaCondition=(String) conditions.get("fechaDeLlegadaCondicion");					
+					String fechaDeLlegadaCondition=(String) conditions.get("fechaDeLlegadaCondicion");
 					switch (fechaDeLlegadaCondition)
 					{
 						case GREATER_THAN:

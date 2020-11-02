@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@Data
 @Entity
 @Table(name="linea_de_ayuda")
 public class LineaDeAyuda  implements Serializable{
@@ -22,12 +24,21 @@ public class LineaDeAyuda  implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	@Setter @Getter
 	private int porciones;
-	
+
+	@NotNull
 	@ManyToOne
+	@Setter @Getter
 	private Producto producto;
 
 	@ManyToOne
     @JoinColumn
+	@Setter
     private Ayuda ayuda;
+
+	@JsonIgnore
+	public Ayuda getAyuda() {
+		return ayuda;
+	}
 }

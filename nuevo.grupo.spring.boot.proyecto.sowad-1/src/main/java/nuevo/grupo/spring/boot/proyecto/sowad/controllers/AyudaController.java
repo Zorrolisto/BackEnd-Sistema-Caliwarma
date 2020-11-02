@@ -26,7 +26,7 @@ import nuevo.grupo.spring.boot.proyecto.sowad.models.entity.Ayuda;
 import nuevo.grupo.spring.boot.proyecto.sowad.services.IAyudaService;
 
 @RequiredArgsConstructor
-@CrossOrigin(origins = {"http://localhost:8080"})
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/v1/QW")
 public class AyudaController {
@@ -87,8 +87,10 @@ public class AyudaController {
 	public List<Ayuda> listarAyudasPorCriterio(@RequestParam(required=false, name="producto") String producto, 
 												@RequestParam(required=false, name="institucion") String institucion,	
 												@RequestParam(required=false, name="porcionesTotales") Integer porcionesTotales,
+											    @RequestParam(required=false, name="porcionesTotalesCondicion") String porcionesTotalesCondicion,
 												@RequestParam(required=false, name="precioTotal") Float precioTotal,
-												@RequestParam(required=false, name="fechaDeLlegada") @DateTimeFormat(pattern="yyyy-MM-dd") Date fechaDeLlegada,
+											    @RequestParam(required=false, name="precioTotalCondicion") String precioTotalCondicion,
+											    @RequestParam(required=false, name="fechaDeLlegada") @DateTimeFormat(pattern="yyyy-MM-dd") Date fechaDeLlegada,
 												@RequestParam(required=false, name="fechaDeLlegadaCondicion") String fechaDeLlegadaCondicion,
 												@RequestParam(required=false, name="fechaDeEnvio") @DateTimeFormat(pattern="yyyy-MM-dd") Date fechaDeEnvio,
 												@RequestParam(required=false, name="fechaDeEnvioCondicion") String fechaDeEnvioCondicion,
@@ -109,15 +111,25 @@ public class AyudaController {
 		//institucion codigo o numero
 		if (institucion!=null) {
 			data.put("institucion",institucion); 
-		} 
+		}
 		//porcionesTotales
-		if (porcionesTotales!=null) {
-			data.put("porcionesTotales",porcionesTotales); 
-		}  
+		if (porcionesTotalesCondicion==null)
+			porcionesTotalesCondicion=LESS_THAN;
+		if (!porcionesTotalesCondicion.equals(GREATER_THAN) && 	!porcionesTotalesCondicion.equals(LESS_THAN) && !porcionesTotalesCondicion.equals(EQUAL))
+			porcionesTotalesCondicion=GREATER_THAN;
+		if (porcionesTotales!=null){
+			data.put("porcionesTotales",porcionesTotales);
+			data.put("porcionesTotalesCondicion", porcionesTotalesCondicion);
+		}
 		//precioTotal
-		if (precioTotal!=null) {
-			data.put("precioTotal",precioTotal); 
-		}  
+		if (precioTotalCondicion==null)
+			precioTotalCondicion=LESS_THAN;
+		if (!precioTotalCondicion.equals(GREATER_THAN) && 	!precioTotalCondicion.equals(LESS_THAN) && !precioTotalCondicion.equals(EQUAL))
+			precioTotalCondicion=GREATER_THAN;
+		if (precioTotal!=null){
+			data.put("precioTotal",precioTotal);
+			data.put("precioTotalCondicion", precioTotalCondicion);
+		}
 		//fechaDeLlegada
 		if (fechaDeLlegadaCondicion==null)
 			fechaDeLlegadaCondicion=LESS_THAN;
@@ -127,7 +139,7 @@ public class AyudaController {
 			data.put("fechaDeLlegada",fechaDeLlegada); 
 			data.put("fechaDeLlegadaCondicion", fechaDeLlegadaCondicion);
 		} 
-		//fechaDeRegistro
+		//fechaDeEnvio
 		if (fechaDeEnvioCondicion==null)
 			fechaDeEnvioCondicion=LESS_THAN;
 		if (!fechaDeEnvioCondicion.equals(GREATER_THAN) && 	!fechaDeEnvioCondicion.equals(LESS_THAN) && !fechaDeEnvioCondicion.equals(EQUAL))

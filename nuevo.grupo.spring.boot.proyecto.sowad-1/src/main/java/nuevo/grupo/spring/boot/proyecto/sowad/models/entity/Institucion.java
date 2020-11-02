@@ -3,6 +3,7 @@ package nuevo.grupo.spring.boot.proyecto.sowad.models.entity;
 import java.io.Serializable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -26,6 +27,7 @@ public class Institucion implements Serializable{
 	private int nroDeAlumnos;
 	private String nivel;
 
+	@NotNull
 	@OneToOne(cascade = CascadeType.ALL)
 	private Lugar lugar;
 }
