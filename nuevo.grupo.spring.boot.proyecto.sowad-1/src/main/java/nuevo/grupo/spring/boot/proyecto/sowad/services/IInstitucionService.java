@@ -14,4 +14,5 @@ public interface IInstitucionService {
 	public Page<Institucion> getAll(Pageable pageable);
 	public Page<Institucion> getData(HashMap<String, Object> conditions, Pageable pageable);
 	public int countInstituciones();
+	Institucion findByNumero(String numero);
 }

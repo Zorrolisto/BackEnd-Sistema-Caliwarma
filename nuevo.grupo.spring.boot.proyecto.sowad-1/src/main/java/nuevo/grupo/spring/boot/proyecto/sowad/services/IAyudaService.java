@@ -14,4 +14,5 @@ public interface IAyudaService {
 	public Page<Ayuda> getAll(Pageable pageable);
 	public Page<Ayuda> getData(HashMap<String, Object> conditions, Pageable pageable);
 	public int countAyudas();
+	Ayuda findFirstByOrderByIdDesc();
 }

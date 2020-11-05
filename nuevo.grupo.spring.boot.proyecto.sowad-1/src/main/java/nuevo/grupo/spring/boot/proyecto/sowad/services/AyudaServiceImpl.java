@@ -44,6 +44,8 @@ public class AyudaServiceImpl implements IAyudaService{
 	@Transactional
 	@Override
 	public Ayuda saveAyuda(Ayuda ayuda) {
+		ayuda.verificarPorcionesTotales();
+		ayuda.verificarPrecioTotal();
 		return AyudaDao.save(ayuda);
 	}
 
@@ -208,6 +210,11 @@ public class AyudaServiceImpl implements IAyudaService{
 	@Override
 	public int countAyudas() {
 		return (int)AyudaDao.count();
+	}
+
+	@Override
+	public Ayuda findFirstByOrderByIdDesc() {
+		return AyudaDao.findFirstByOrderByIdDesc();
 	}
 
 }

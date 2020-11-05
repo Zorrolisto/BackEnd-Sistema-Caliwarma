@@ -14,4 +14,5 @@ public interface IProductoService {
 	public Page<Producto> getAll(Pageable pageable);
 	public Page<Producto> getData(HashMap<String, Object> conditions, Pageable pageable);
 	public int countProductos();
+	Producto findByNombre(String nombre);
 }

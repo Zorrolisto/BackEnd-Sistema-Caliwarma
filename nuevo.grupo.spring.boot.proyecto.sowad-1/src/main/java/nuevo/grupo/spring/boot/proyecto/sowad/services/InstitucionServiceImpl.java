@@ -37,6 +37,13 @@ public class InstitucionServiceImpl implements IInstitucionService{
 	@Transactional
 	@Override
 	public Institucion saveInstitucion(Institucion institucion) {
+		Lugar lugar = institucion.getLugar();
+		lugar.verificarSoloLetras(lugar.getDistrito());
+		lugar.verificarSoloLetras(lugar.getDepartamento());
+		lugar.verificarSoloLetras(lugar.getProvincia());
+		institucion.verificarSoloNumeros(institucion.getNumero());
+		institucion.verificarSoloLetras(institucion.getNombre());
+		institucion.verificarSoloLetras(institucion.getNivel());
 		return InstitucionDao.save(institucion);
 	}
 
@@ -145,6 +152,11 @@ public class InstitucionServiceImpl implements IInstitucionService{
 	@Override
 	public int countInstituciones() {
 		return (int)InstitucionDao.count();
+	}
+
+	@Override
+	public Institucion findByNumero(String numero) {
+		return InstitucionDao.findByNumero(numero);
 	}
 
 }

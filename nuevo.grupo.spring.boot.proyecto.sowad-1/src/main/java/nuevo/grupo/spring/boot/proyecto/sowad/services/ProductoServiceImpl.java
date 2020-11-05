@@ -39,6 +39,9 @@ public class ProductoServiceImpl implements IProductoService{
 	@Transactional
 	@Override
 	public Producto saveProducto(Producto producto) {
+		producto.verificarSoloLetras(producto.getMarca());
+		producto.verificarSoloLetras(producto.getNombre());
+		producto.verificarSoloLetras(producto.getTipo());
 		return ProductoDao.save(producto);
 	}
 
@@ -133,6 +136,11 @@ public class ProductoServiceImpl implements IProductoService{
 	@Override
 	public int countProductos() {
 		return (int)ProductoDao.count();
+	}
+
+	@Override
+	public Producto findByNombre(String nombre) {
+		return ProductoDao.findByNombre(nombre);
 	}
 
 }

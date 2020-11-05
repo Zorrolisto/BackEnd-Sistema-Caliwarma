@@ -16,10 +16,13 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import lombok.Data;
+import org.springframework.format.annotation.NumberFormat;
 
 @Data
 @Entity
@@ -44,7 +47,14 @@ public class Ayuda  implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date fechaDeRegistro;
 
+	@NotNull
+	@NumberFormat(style = NumberFormat.Style.NUMBER)
+	@Min(1)
+	@Max(100000)
 	private int porcionesTotales;
+
+	@NotNull
+	@NumberFormat(style = NumberFormat.Style.NUMBER)
 	@Min(1)
 	private Float precioTotal;
 
@@ -56,4 +66,16 @@ public class Ayuda  implements Serializable{
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="ayuda_id")
 	private Set<LineaDeAyuda> lineasDeAyudas;
+
+	public void verificarPorcionesTotales(){
+		if(this.porcionesTotales<1)
+			throw new RuntimeException("Porciones menores a 1");
+		if(this.porcionesTotales>100000)
+			throw new RuntimeException("Porciones mayores a 100000");
+	}
+
+	public void verificarPrecioTotal(){
+		if(this.precioTotal<1)
+			throw new RuntimeException("Precio total a 1");
+	}
 }

@@ -8,4 +8,6 @@ import nuevo.grupo.spring.boot.proyecto.sowad.models.entity.Institucion;
 
 public interface IInstitucionDao extends CrudRepository<Institucion, Long>{
 	public Page<Institucion> findAll(Pageable pageable);
+	Institucion findByNumero(String numero);
 }
+

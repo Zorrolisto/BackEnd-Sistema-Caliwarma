@@ -9,11 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 import lombok.Getter;
 import lombok.Setter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 @Table(name="linea_de_ayuda")
@@ -24,6 +25,11 @@ public class LineaDeAyuda  implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+
+	@NotEmpty
+	@NumberFormat(style = NumberFormat.Style.NUMBER)
+	@Min(1)
+	@Max(100000)
 	@Setter @Getter
 	private int porciones;
 

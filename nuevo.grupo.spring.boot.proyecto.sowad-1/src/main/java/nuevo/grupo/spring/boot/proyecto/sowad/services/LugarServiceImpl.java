@@ -39,6 +39,9 @@ public class LugarServiceImpl implements ILugarService {
 	@Transactional
 	@Override
 	public Lugar saveLugar(Lugar lugar) {
+		lugar.verificarSoloLetras(lugar.getDepartamento());
+		lugar.verificarSoloLetras(lugar.getDistrito());
+		lugar.verificarSoloLetras(lugar.getProvincia());
 		return LugarDao.save(lugar);
 	}
 	
