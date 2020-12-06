@@ -20,6 +20,7 @@ insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) va
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Galletas', 'Harina', 2, 0.5, 10000, 'Sol Integral');
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Quinua', 'Cereal', 1, 1.5, 4000, 'Pacha');
 insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('Chocolate', 'Chocolate', 1, 2, 10000, 'Selva');
+insert into producto(nombre, tipo, porcion_por_persona, precio, stock, marca) values('ChocolateSD', 'Chocolate', 1, 2, 10000, 'Selva');
 
 
 /* ************************************************************ ENDS PRODUCT TABLE ********************************************************** */
@@ -79,26 +80,26 @@ insert into institucion(numero, nombre, nro_de_alumnos, nivel, lugar_id) values(
 
 /* ************************************************************ BEGIN HELP TABLE ********************************************************** */
 
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 1);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 1);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 1);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 2);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-05', '2020-10-01', '2020-09-22', 200, 2000, 1);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-05', '2020-09-22', 200, 2000, 1);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-03', '2020-10-01', '2020-09-26', 200, 2000, 1);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-03', '2020-09-26', 200, 2000, 2);
 insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 5);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 4);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 8);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 9);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 11);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 12;
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 13);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-03', '2020-10-02', '2020-09-26', 200, 2000, 4);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-02', '2020-09-26', 200, 2000, 8);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-02', 200, 2000, 9);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-08', '2020-10-01', '2020-09-26', 200, 2000, 11);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-03', '2020-09-03', 200, 2000, 12;
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-09', '2020-10-01', '2020-09-26', 200, 2000, 13);
 insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 15);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 10;
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 2);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 4);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-06', '2020-10-01', '2020-09-26', 200, 2000, 10;
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-03', '2020-09-03', 200, 2000, 2);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-10', '2020-10-01', '2020-09-26', 200, 2000, 4);
 insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 7);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 1);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 9);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 10);
-insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-01', '2020-09-26', 200, 2000, 1);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-12', '2020-10-01', '2020-09-03', 200, 2000, 1);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-12', '2020-10-02', '2020-09-02', 200, 2000, 9);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-02', '2020-10-02', '2020-09-02', 200, 2000, 10);
+insert into Ayuda(fecha_de_llegada, fecha_de_envio, fecha_de_registro, porciones_totales, precio_total, institucion_id) values('2020-10-22', '2020-10-01', '2020-09-02', 200, 2000, 1);
 
 /* ************************************************************ ENDS HELP TABLE ********************************************************** */
 
